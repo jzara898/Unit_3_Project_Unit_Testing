@@ -29,10 +29,10 @@ public class UserTest {
         user1 = new User(board, "testUser1");
         user2 = new User(board, "testUser2");
         user3 = new User(board, "testUser3");
-        question1 = user1.askQuestion("How do you declare a variable?");
+        question1 = user1.askQuestion("How to declare a variable?");
         answer1 = user2.answerQuestion(question1,"type variableName = value;");
-        question2 = user2.askQuestion("What are the primitive types?");
-        answer2 = user1.answerQuestion(question2,"Primitive data types - includes byte , short , int , long , float , double , boolean and char.");
+        question2 = user2.askQuestion("What are primitive data types?");
+        answer2 = user1.answerQuestion(question2,"Primitive data types: int , long , float , char, boolean.");
     }
 
     @Test
@@ -101,7 +101,7 @@ public class UserTest {
     @Test
     public void userCannotUpVoteOwnQuestion() throws Exception {
         thrown.expect(VotingException.class);
-        thrown.expectMessage("You cannot vote for yourself!");
+        thrown.expectMessage("Sorry, you can't vote for yourself.");
 
         user1.upVote(question1);
     }
@@ -109,7 +109,7 @@ public class UserTest {
     @Test
     public void userCannotDownVoteOwnQuestion() throws Exception {
         thrown.expect(VotingException.class);
-        thrown.expectMessage("You cannot vote for yourself!");
+        thrown.expectMessage("Sorry, you can't vote for yourself.");
 
         user1.downVote(question1);
     }
@@ -117,7 +117,7 @@ public class UserTest {
     @Test
     public void userCannotUpVoteOwnAnswer() throws Exception {
         thrown.expect(VotingException.class);
-        thrown.expectMessage("You cannot vote for yourself!");
+        thrown.expectMessage("Sorry, you can't vote for yourself.");
 
         user2.upVote(answer1);
     }
@@ -125,7 +125,7 @@ public class UserTest {
     @Test
     public void userCannotDownVoteOwnAnswer() throws Exception {
         thrown.expect(VotingException.class);
-        thrown.expectMessage("You cannot vote for yourself!");
+        thrown.expectMessage("Sorry, you can't vote for yourself.");
 
         user2.downVote(answer1);
     }
@@ -133,7 +133,7 @@ public class UserTest {
     @Test
     public void onlyAuthorsCanAcceptAnswer() throws Exception {
         thrown.expect(AnswerAcceptanceException.class);
-        thrown.expectMessage("Only testUser1 can accept this answer as it is their question");
+        thrown.expectMessage("Only testUser1 can accept this answer.");
 
         user3.acceptAnswer(answer1);
     }

@@ -36,7 +36,7 @@ public class User {
     public void acceptAnswer(Answer answer) {
         User questioner = answer.getQuestion().getAuthor();
         if (!questioner.equals(this)) {
-            String message = String.format("Only %s can accept this answer as it is their question",
+            String message = String.format("Only %s can accept this answer.",
                     questioner.getName());
             throw new AnswerAcceptanceException(message);
         }
@@ -45,14 +45,14 @@ public class User {
 
     public boolean upVote(Post post) {
         if (post.getAuthor().equals(this)) {
-            throw new VotingException("You cannot vote for yourself!");
+            throw new VotingException("Sorry, you can't vote for yourself.");
         }
         return post.addUpVoter(this);
     }
 
     public boolean downVote(Post post) {
         if (post.getAuthor().equals(this)) {
-            throw new VotingException("You cannot vote for yourself!");
+            throw new VotingException("Sorry, you can't vote for yourself.");
         }
         return post.addDownVoter(this);
     }
