@@ -131,7 +131,7 @@ public class UserTest {
     }
 
     @Test
-    public void onlyAuthorsCanAcceptAnswer() throws Exception {
+    public void onlyAuthorCanAcceptAnswer() throws Exception {
         thrown.expect(AnswerAcceptanceException.class);
         thrown.expectMessage("Only testUser1 can accept this answer.");
 
