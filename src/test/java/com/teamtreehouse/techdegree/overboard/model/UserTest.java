@@ -34,7 +34,7 @@ public class UserTest {
         question2 = user2.askQuestion("What are primitive data types?");
         answer2 = user1.answerQuestion(question2,"Primitive data types: int , long , float , char, boolean.");
     }
-
+ 
     @Test
     public void usersReputationIncreasesBy5AfterUpVote() throws Exception {
         int prevReputation = user1.getReputation();
