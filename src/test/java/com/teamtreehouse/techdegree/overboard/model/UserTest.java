@@ -26,7 +26,7 @@ public class UserTest {
     @Before
     public void setUp() throws Exception {
         board = new Board("Java");
-        user1 = new User(board, "testser1");
+        user1 = new User(board, "testUser1");
         user2 = new User(board, "testUser2");
         user3 = new User(board, "testUser3");
         question1 = user1.askQuestion("How to declare a variable?");
